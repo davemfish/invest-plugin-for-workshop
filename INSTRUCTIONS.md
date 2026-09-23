@@ -4,27 +4,66 @@
 Before you begin, please make sure you have installed the following:
 - the latest version of the [InVEST® Workbench](https://naturalcapitalalliance.stanford.edu/software/invest/invest-downloads-data#invest-workbench)
 - [git](https://git-scm.com/install/)
+- [conda or mamba](https://docs.conda.io/en/latest). We recommend "Miniforge" if you don't already have a preference.
 
 You may also want to have the following **optional** tools installed:
-- [conda](https://docs.conda.io/en/latest)
 - your text editor of choice (VSCode, Sublime Text, Vim, etc.)
 
   Don't have a favorite text editor? No problem—most operating systems ship with a text editor you can use for this activity. Try `Notepad` or `Edit` on Windows, or `TextEdit` on macOS.
 
 - [QGIS](https://qgis.org/)
 
-Some familiarity with Python will be helpful, but is not required.
+## Phase 1: Setup a Python development environment
+An InVEST Plugin is a Python package. All plugins will use APIs from the `natcap.invest` Python library.
+The first step in development is to create a Python environment and install `natcap.invest`.
 
-## Phase 1
-1. First, you'll need a copy of the source code. Navigate to the [Birb Habitat plugin repo](https://github.com/natcap/invest-plugin-for-workshop) and press the `Code` button.
+```
 
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./images/clone_repo-dark.png">
-      <source media="(prefers-color-scheme: light)" srcset="./images/clone_repo-light.png">
-      <img alt="" src="./images/clone_repo-light.png" width="320" />
-    </picture>
+```
 
-2. Copy the git URL and `git clone` the repo using the command line.
+## Phase 1: Setup a development environment
+1. Establish a local directory for your project. In this workshop, we will start by cloning this repository. (If you were developing a plugin from scratch, you would start by creating a new directory instead.)
+
+2. Open a shell/terminal and navigate to a directory where you wish to work. This command will create a new folder called "invest-plugin-for-workshop" and clone the repository's contents to it:
+```
+git clone https://github.com/natcap/invest-plugin-for-workshop.git
+```
+
+3. Check the contents of the folder:
+```
+cd invest-plugin-for-workshop
+```
+
+4. Create a Python environment
+An InVEST Plugin is a Python package. All plugins use APIs from the `natcap.invest` Python library.
+The first step in development is to create a Python environment and install `natcap.invest`.
+
+Do you have `conda` or `mamba` available in your shell? They can be used interchangeably in the following commands.
+
+Create a new Python environment. The `-p` flag stands for "path", so the new environment will be contained
+within a folder called "env" within your current directory.
+```
+conda create -p ./env
+```
+Activate the environment so that all subsequent uses of `conda` and `python` use this environment.
+```
+conda activate ./env
+```
+Install the `natcap.invest` package and all its dependencies from conda-forge.
+```
+conda install -c conda-forge natcap.invest
+```
+Check if our environment is setup
+```
+python
+>>> import natcap.invest
+>>> exit()
+```
+In addition to the `natcap.invest` python API, we should also now have the `invest` command-line interface:
+```
+invest list
+```
+This lists all the available invest models. After we install a plugin, it will also be listed here!
 
 3. Open the cloned repo folder in your text editor.
 
