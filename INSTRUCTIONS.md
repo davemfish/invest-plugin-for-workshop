@@ -27,12 +27,12 @@ You may also want to have the following **optional** tools installed:
     ls -lh
     ```
 
-4. Create a Python environment
+4. Create a Python environment:
     An InVEST Plugin is a Python package. All plugins use APIs from the `natcap.invest` Python library.
     The first step in development is to create a Python environment and install `natcap.invest`.
 
-    [!NOTE]
-    Do you have `conda` or `mamba` available in your shell? They can be used interchangeably in the following commands.
+    >[!NOTE]
+    >Do you have `conda` or `mamba` available in your shell? They can be used interchangeably in the following commands.
 
     Create a new Python environment. The `-p` flag stands for "path", so the new environment will be contained
     within a folder called "env" within your current directory.
@@ -110,8 +110,8 @@ We have confirmed that the plugin is a valid Python package by importing it in P
 
     Make sure the path ends with the name of the repo directory: `invest-plugin-for-workshop`.
 
-    [!NOTE]
-    The Workbench will use its own installation of `micromamba` to setup a Python environment for your plugin in much the same way we just did. If you wish, you may use the "Advanced" options to configure the Workbench to use the same `mamba` or `conda` package manager that you were using in the previous steps.
+    >[!NOTE]
+    >The Workbench will use its own installation of `micromamba` to setup a Python environment for your plugin in much the same way we just did. If you wish, you may use the "Advanced" options to configure the Workbench to use the same `mamba` or `conda` package manager that you were using in the previous steps.
 
     Read the disclaimer, check the checkbox, and then press the `Add` button.
 
@@ -121,8 +121,8 @@ We have confirmed that the plugin is a valid Python package by importing it in P
 
     <img alt="" src="./images/installation_success.png" width="212" />
 
-    [!TIP]
-    After the plugin is installed, we can also configure the Workbench to run it using the Python environment you created earlier, rather than the environment that was just created by the Workbench. This will make it easier for you to make changes to the plugin source code and see them reflected in the Workbench.
+    >[!TIP]
+    >After the plugin is installed, we can also configure the Workbench to run it using the Python environment you created earlier, rather than the environment that was just created by the Workbench. This will make it easier for you to make changes to the plugin source code and see them reflected in the Workbench. If you do not do this, you will need to uninstall and re-install the plugin in order to see changes reflected.
 
 4. Close the `Manage plugins` modal. You should now see the `Birb Habitat` model listed in the Workbench, between `Annual Water Yield` and `Carbon Storage and Sequestration`, and labeled with a `Plugin` badge.
 
@@ -151,27 +151,30 @@ We have confirmed that the plugin is a valid Python package by importing it in P
     <img alt="" src="./images/open_workspace_button.png" width="185" />
 
 ## Phase 4: Modify the model to aggregate results in an Area of Interest
-2. Return to your code editor and open the plugin module ([src/invest_plugin_for_workshop/plugin.py](./src/invest_plugin_for_workshop/plugin.py)).
+1. Return to your code editor and open the plugin module ([src/invest_plugin_for_workshop/plugin.py](./src/invest_plugin_for_workshop/plugin.py)).
 
-3. Search `plugin.py` for `Uncomment for Version 2`, and uncomment each section labeled with `Uncomment for Version 2`. As you uncomment each section, notice what this new code is adding to the model.
+2. Search `plugin.py` for `Uncomment for Version 2`, and uncomment each section labeled with `Uncomment for Version 2`. As you uncomment each section, notice what this new code is adding to the model.
     
-    [!TIP]
-    In many text editors, you can select multiple lines of text, then press `Ctrl` + `/` (on Windows) or `⌘` + `/` (`Command-Slash`, on macOS) to comment/uncomment all those lines at once.
+    >[!TIP]
+    >In many text editors, you can select multiple lines of text, then press `Ctrl` + `/` (on Windows) or `⌘` + `/` (`Command-Slash`, on macOS) to comment/uncomment all those lines at once.
 
-    [!NOTE]
-    When commenting/uncommenting code, it's not uncommon to mistakenly comment/uncomment too few or too many lines, landing your code in an awkward "in-between" state. If at any point you find your code has become broken and you're not sure why, you can check the files in the `backups` folder in this repo. For example, if you're working on Version 2, take a look at `backups/version_2.py` for a complete copy of the Version 2 code—no commenting/uncommenting needed. You can use the "backup" code as a reference to debug your own, or if you're stuck, you can delete everything from `plugin.py` and then copy and paste the entire contents of `backups/version_2.py` into `plugin.py`.
+    >[!NOTE]
+    >When commenting/uncommenting code, it's not uncommon to mistakenly comment/uncomment too few or too many lines, landing your code in an awkward "in-between" state. If at any point you find your code has become broken and you're not sure why, you can check the files in the `backups` folder in this repo. For example, if you're working on Version 2, take a look at `backups/version_2.py` for a complete copy of the Version 2 code—no commenting/uncommenting needed. You can use the "backup" code as a reference to debug your own, or if you're stuck, you can delete everything from `plugin.py` and then copy and paste the entire contents of `backups/version_2.py` into `plugin.py`.
 
-4. Save your changes to `plugin.py`.
+3. Save your changes to `plugin.py`.
 
-5. Quit and reopen the Workbench, then relaunch the `Birb Habitat` model. You'll notice an additional form field, `Area of Interest`. Use the `browse` button to select `invest-plugin-for-workshop/sample_data/AOI.shp`.
+4. Quit and reopen the Workbench, then relaunch the `Birb Habitat` model. You'll notice an additional form field, `Area of Interest`. Use the `browse` button to select `invest-plugin-for-workshop/sample_data/AOI.shp`.
 
     <img alt="" src="./images/args_form_phase_2_aoi.png" width="700" />
 
-6. [Optional] You may want to choose a new workspace directory, if you'd like to be able to compare Phase 1 results side-by-side with Phase 2 results. For example, if you saved Phase 1 results to a folder called `birbs_phase_1`, you might choose to save Phase 2 results to a folder called `birbs_phase_2`.
+5. [Optional] You may want to choose a new workspace directory, if you'd like to be able to compare Phase 1 results side-by-side with Phase 2 results. For example, if you saved Phase 1 results to a folder called `birbs_phase_1`, you might choose to save Phase 2 results to a folder called `birbs_phase_2`.
 
     <img alt="" src="./images/args_form_phase_2_workspace.png" width="700" />
 
-7. Press the `Run` button to run the updated plugin. Once it's complete, press the `Open Workspace` button, open `birb_habitat_report.html`, and observe the results. What do you see that is new or different compared to the previous version?
+6. Press the `Run` button to run the updated plugin. Once it's complete, press the `Open Workspace` button, open `birb_habitat_report.html`, and observe the results. What do you see that is new or different compared to the previous version?
+
+> [!IMPORTANT]
+> Quit and re-open the Workbench after editing source code in order to see your changes reflected.
 
 ## Phase 5: Modify the model to use birb population density data
 1. Return to your code editor and open the plugin module ([src/invest_plugin_for_workshop/plugin.py](./src/invest_plugin_for_workshop/plugin.py)).
@@ -206,13 +209,13 @@ Want to push the Birb Habitat model—and your skills—even further? See if you
     - **aggregated_results_alt.gpkg** (vector): Birb density statistics under an alternate LULC scenario, aggregated over each polygon in the Area of Interest vector.
 3. Update the model to produce the following additional outputs:
     - **birb_count_increase.tif** (raster, units: None): Map of total number of birbs per pixel gained under an alternate LULC scenario, when compared to the baseline LULC scenario. A positive number indicates an increase in that pixel's birb population; a negative number indicates a decrease.
-    - **[GROUP]_count_increase.tif** (raster, units: None): Map of number of birbs (in a given birb group) per pixel gained under an alternate LULC scenario, when compared to the baseline LULC scenario. A positive number indicates an increase in that pixel's birb population; a negative number indicates a decrease. One raster is created for each birb group defined in the Birb Population Density Table.
+    - **[GROUP]\_count_increase.tif** (raster, units: None): Map of number of birbs (in a given birb group) per pixel gained under an alternate LULC scenario, when compared to the baseline LULC scenario. A positive number indicates an increase in that pixel's birb population; a negative number indicates a decrease. One raster is created for each birb group defined in the Birb Population Density Table.
 4. Update the model reporter to include the new inputs and outputs:
     - **Alternate LULC**
     - **birb_count_alt.tif**
     - **aggregated_results_alt.gpkg**
     - **birb_count_increase.tif**
-    - **[GROUP]_count_increase.tif**
+    - **[GROUP]\_count_increase.tif**
 
     How and where you add these items to the report is up to you—if you were trying to make sense of the model's results at a glance, how would you want to see them organized? If you're still not sure, or you'd like to see some examples, check out the [Sample Carbon Report](https://storage.googleapis.com/releases.naturalcapitalproject.org/invest-reports/latest/carbon_report_willamette.html) (for baseline/alternate results, a difference map, and an alternate LULC) and/or any of the other [Sample InVEST Reports](http://releases.naturalcapitalproject.org/?prefix=invest-reports/latest/) (for various ways to present vector results).
 
