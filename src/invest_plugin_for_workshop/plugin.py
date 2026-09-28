@@ -200,7 +200,7 @@ def execute(args):
             land use / land cover classes.
         args['biophysical_table']: path to a CSV mapping each LULC code
             to the type of tree cover on that LULC class.
-        args['aoi_path']: path a GDAL polygon vector used to aggregate results
+        args['aoi_path']: path to a GDAL polygon vector used to aggregate results
         args['birb_population_density_table']: path to a CSV mapping 
             user-defined groups of birbs to their population density in
             coniferous and deciduous forest

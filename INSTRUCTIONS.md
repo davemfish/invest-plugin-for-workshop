@@ -4,7 +4,7 @@
 Before you begin, please make sure you have installed the following:
 - the latest version of the [InVEST® Workbench](https://naturalcapitalalliance.stanford.edu/software/invest/invest-downloads-data#invest-workbench)
 - [git](https://git-scm.com/install/)
-- [conda or mamba](https://docs.conda.io/en/latest). We recommend "Miniforge" if you don't already have a preference.
+- [conda or mamba](https://docs.conda.io/en/latest). `conda` comes with the "Miniconda" installer and `mamba` comes with the "Miniforge" installer. We recommend "Miniforge" if you don't already have a preference.
 
 You may also want to have the following **optional** tools installed:
 - your text editor of choice (VSCode, Sublime Text, Vim, etc.)
@@ -13,7 +13,7 @@ You may also want to have the following **optional** tools installed:
 
 - [QGIS](https://qgis.org/)
 
-## Phase 1: Setup a development environment
+## Phase 1: Set up a development environment
 1. Establish a local directory for your project. In this workshop, we will start by cloning this repository. (If you were developing a plugin from scratch, you would start by creating a new directory instead.)
 
 2. Open a shell/terminal and navigate to a directory where you wish to work. This command will create a new folder called "invest-plugin-for-workshop" and clone the repository's contents to it:
@@ -31,8 +31,8 @@ You may also want to have the following **optional** tools installed:
     An InVEST Plugin is a Python package. All plugins use APIs from the `natcap.invest` Python library.
     The first step in development is to create a Python environment and install `natcap.invest`.
 
-    >[!NOTE]
-    >Do you have `conda` or `mamba` available in your shell? They can be used interchangeably in the following commands.
+>[!NOTE]
+>`conda` and `mamba` can be used interchangeably in the following commands, depending on which one you have installed.
 
     Create a new Python environment. The `-p` flag stands for "path", so the new environment will be contained
     within a folder called "env" within your current directory.
@@ -96,7 +96,7 @@ For this workshop, we already have a plugin mostly developed and ready to use. L
     ```
 
 ### Phase 3: Test the plugin in the Workbench
-We have confirmed that the plugin is a valid Python package by importing it in Python. And we confirmed that is a valid InVEST plugin/model by seeing it listed under `invest list`. But we still need to test if the user-interface is working, and that the model runs. To do this, we will install our plugin into the InVEST Workbench, just like a plugin user would do.
+We have confirmed that the plugin is a valid Python package by importing it in Python. And we confirmed that is a valid InVEST plugin/model by seeing it listed under `invest list`. But we still need to test if the user interface is working, and that the model runs. To do this, we will install our plugin into the InVEST Workbench, just like a plugin user would do.
 
 1. Open the InVEST Workbench. Press the menu button in the upper-right corner of the window, then, from the list of options, select `Manage Plugins`.
 
@@ -111,7 +111,7 @@ We have confirmed that the plugin is a valid Python package by importing it in P
     Make sure the path ends with the name of the repo directory: `invest-plugin-for-workshop`.
 
     >[!NOTE]
-    >The Workbench will use its own installation of `micromamba` to setup a Python environment for your plugin in much the same way we just did. If you wish, you may use the "Advanced" options to configure the Workbench to use the same `mamba` or `conda` package manager that you were using in the previous steps.
+    >The Workbench will use its own installation of `micromamba` to set up a Python environment for your plugin in much the same way we just did. If you wish, you may use the "Advanced" options to configure the Workbench to use the same `mamba` or `conda` package manager that you were using in the previous steps.
 
     Read the disclaimer, check the checkbox, and then press the `Add` button.
 
