@@ -94,7 +94,7 @@ InVEST should also recognize the package as a plugin:
 invest list
 ```
 
-### Phase 3: Test the plugin in the Workbench
+## Phase 3: Test the plugin in the Workbench
 We have confirmed that the plugin is a valid Python package by importing it in Python. And we confirmed that is a valid InVEST plugin/model by seeing it listed under `invest list`. But we still need to test if the user interface is working, and that the model runs. To do this, we will install our plugin into the InVEST Workbench, just like a plugin user would do.
 
 1. Open the InVEST Workbench. Press the menu button in the upper-right corner of the window, then, from the list of options, select `Manage Plugins`.
